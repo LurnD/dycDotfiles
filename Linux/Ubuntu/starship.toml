@@ -1,0 +1,183 @@
+# Don't print a new line at the start of the prompt
+add_newLine = true
+
+format = "$all"
+
+# Wait 10 ms for starship to check files under the current directroy.
+scan_timeout = 10
+
+# Show battery status.
+[battery]
+full_symbol = "🔋"
+charging_symbol = "⚡️"
+discharging_symbol = "💀"
+
+# Used to define when the battery indicator should be shown 
+# (threshold) and what it looks like.
+# Threshold 10 -> red
+# Threshold 30 -> yellow
+# Threshold 90 -> green
+[[battery.display]]
+threshold = 10
+style = "bold red"
+
+[[battery.display]]
+threshold = 30
+style = "bold yellow"
+
+[[battery.display]]
+threshold = 90
+style = "bold green"
+
+# Custom error shape
+[character]
+success_symbol = "[➜](bold green) "
+error_symbol = "[✗](bold red) "
+
+# Cmake configuration
+format = "via [$symbol$version]($style) "
+symbol = "▲ "
+style = "bold blue"
+disabled = false
+
+# Command duration
+[cmd_duration]
+min_time = 500
+format = "underwent [$duration](bold yellow)"
+
+# Conda
+[conda]
+symbol = "🅒 "
+style = "bold green"
+format = "[$symbol$environment]($style) "
+disabled = false
+
+# Directory
+[directory]
+format = "[$path]($style)[$read_only]($read_only_style) "
+style = "bold cyan"
+read_only = "🔒"
+read_only_style = "red"
+
+# Docker Context
+[docker]
+format = "via [🐋 $context](blue bold)"
+
+# Dotnet
+[dotnet]
+symbol = "🥅 "
+style = "green"
+heuristic = false
+
+# Environment Variable
+[environment]
+variable = "SHELL"
+default = "unknown shell"
+style = "black bold dimmed"
+format = "with [$env_value]($style) "
+
+# Git branch
+[git_branch]
+symbol = "🌱 "
+format = "on [$symbol$branch]($style) "
+truncation_symbol = ""
+
+# Git comment
+[git_commit]
+commit_hash_length = 4
+tag_symbol = "🔖 "
+
+# Git state
+[git_state]
+style = "bold yellow"
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = "[🍒 PICKING](bold red)"
+
+# Git status
+[git_status]
+conflicted = "🏳"
+ahead = "🏎💨"
+behind = "😰"
+diverged = "😵"
+untracked = "🤷‍"
+stashed = "📦"
+modified = "📝"
+staged = '[++\($count\)](green)'
+renamed = "👅"
+deleted = "🗑"
+
+
+# Golang
+[golang]
+format = "via [🏎💨 $version](bold cyan) "
+
+# Hostname
+[hostname]
+ssh_only = false
+format =  "on [$hostname](bold red) "
+trim_at = ".companyname.com"
+disabled = false
+
+# Java
+[java]
+symbol = "☕ "
+style = "red dimmed"
+format = "via [${symbol}${version}]($style) "
+
+[jobs]
+threshold = 4
+symbol = "✦"
+style = "bold blue"
+format = "[$symbol$number]($style) "
+
+[line_break]
+disabled = true
+
+[memory_usage]
+disabled = false
+threshold = -1
+symbol = "🐏"
+style = "bold dimmed white"
+format = "via $symbol [${ram}( | ${swap})]($style) "
+
+[nodejs]
+symbol = "⬢ "
+style = "bold green"
+format = "via [$symbol$version]($style) "
+
+[package]
+format = "via [$symbol$version]($style) "
+symbol = "📦 "
+style = "bold 208"
+display_private = false
+disabled = false
+
+[python]
+symbol = "🐍 "
+format = 'via [${symbol}${pyenv_prefix}${version}(\($virtualenv\))]($style) '
+style = "yellow bold"
+pyenv_version_name = true
+
+[rust]
+format = "via [$symbol$version]($style) "
+symbol = "🦀 "
+style = "bold red"
+
+[swift]
+format = "via [$symbol$version]($style) "
+symbol = "🐦 "
+style = "bold 202"
+
+[time]
+disabled = false
+format = '🕙[\[ $time \]]($style) '
+style = 'bold yellow'
+time_format = "%T"
+utc_time_offset = "+8"
+
+[username]
+style_user = "bold italic fg:purple"
+style_root = "black bold"
+format = "[$user]($style) "
+disabled = false
+show_always = true
