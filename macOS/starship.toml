@@ -1,0 +1,296 @@
+# Don't print a new line at the start of the prompt
+add_newline = true
+
+format = "$all"
+
+# Wait 10 ms for starship to check files under the current directroy.
+scan_timeout = 10
+
+# Show battery status.
+[battery]
+full_symbol = "🔋"
+charging_symbol = "⚡️"
+discharging_symbol = "💀"
+
+# Used to define when the battery indicator should be shown 
+# (threshold) and what it looks like.
+# Threshold 10 -> red
+# Threshold 30 -> yellow
+# Threshold 90 -> green
+[[battery.display]]
+threshold = 10
+style = "bold red"
+
+[[battery.display]]
+threshold = 30
+style = "bold yellow"
+
+[[battery.display]]
+threshold = 90
+style = "bold green"
+
+# Custom error shape
+[character]
+success_symbol = "[➜](bold green) "
+error_symbol = "[✗](bold red) "
+vicmd_symbol = "[V](bold green) "
+
+# Cmake configuration
+[cmake]
+format = "via [$symbol$version]($style) "
+symbol = "▲ "
+style = "bold blue"
+disabled = false
+
+# Command duration
+[cmd_duration]
+min_time = 500
+format = "underwent [$duration](bold yellow)"
+
+# Conda
+[conda]
+symbol = "🅒 "
+style = "bold green"
+format = "[$symbol$environment]($style) "
+disabled = false
+
+# Directory
+[directory]
+format = "[$path]($style)[$read_only]($read_only_style) "
+style = "bold cyan"
+read_only = "🔒"
+read_only_style = "red"
+
+# Docker Context
+[docker_context]
+format = "via [🐋 $context](blue bold)"
+only_with_files = true
+detect_extensions = []
+detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
+detect_folders = []
+style = "blue bold"
+disabled = false
+
+# Dotnet
+[dotnet]
+symbol = "🥅 "
+style = "green"
+heuristic = false
+
+# Environment Variable
+[env_var]
+variable = "SHELL"
+default = "unknown shell"
+style = "black bold dimmed"
+format = "with [$env_value]($style) "
+disabled = true
+
+[gcloud]
+format = 'on [$symbol$account(\($region\))]($style) '
+symbol = "☁️ "
+style = "bold blue"
+[gcloud.region_aliases]
+us-central1 = "uc1"
+asia-northeast1 = "an1"
+
+
+# Git branch
+[git_branch]
+symbol = "🌱 "
+format = "on [$symbol$branch]($style) "
+truncation_symbol = ""
+
+# Git comment
+[git_commit]
+commit_hash_length = 4
+tag_symbol = "🔖 "
+
+# Git state
+[git_state]
+style = "bold yellow"
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = "[🍒 PICKING](bold red)"
+
+# Git status
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+conflicted = "🏳"
+ahead = "🏎💨"
+behind = "😰"
+diverged = "😵"
+untracked = "🤷‍"
+stashed = "📦"
+modified = "📝"
+staged = '[++\($count\)](green)'
+renamed = "👅"
+deleted = "🗑"
+style = "bold red"
+disabled = false
+
+# Golang
+[golang]
+format = "via [🏎💨 $version](bold cyan) "
+symbol = "🐹 "
+detect_extensions = ["go"]
+detect_files = ["go.mod", "go.sum", "glide.yaml", "Gopkg.yml", "Gopkg.lock", ".go-version"]
+detect_folders = ["Godeps"]
+style = "bold cyan"
+disabled = false
+
+# Hostname
+[hostname]
+ssh_only = false
+format =  "on [$hostname](bold red) "
+trim_at = "."
+disabled = false
+
+# Java
+[java]
+symbol = "☕ "
+style = "red dimmed"
+format = "via [${symbol}${version}]($style) "
+version_format = "v{raw}"
+detect_extensions = ["java", "class", "gradle", "jar", "cljs", "cljc"]
+detect_files = ["pom.xml", "build.gradle.kts", "build.sbt"]
+detect_folders = []
+
+[jobs]
+threshold = 4
+symbol = "✦"
+style = "bold blue"
+format = "[$symbol$number]($style) "
+
+[kotlin]
+format = "via [$symbol($version )]($style)"
+detect_extensions = ["kt", "kts"]
+detect_files = []
+detect_folders = []
+symbol = "🅺 "
+style = "bold blue"
+kotlin_binary = "kotlin"
+disabled = false
+
+[kubernetes]
+symbol = "☸ "
+format = '[$symbol$context( \($namespace\))]($style) in '
+style = "cyan bold"
+disabled = false
+[kubernetes.context_aliases]
+"dev.local.cluster.k8s" = "dev"
+
+[line_break]
+disabled = false
+
+[lua]
+format = "via [$symbol($version )]($style)"
+symbol = "🌙 "
+detect_extensions = ["lua"]
+detect_files = [".lua-version"]
+style = "bold blue"
+lua_binary = "lua"
+disabled = false
+
+[memory_usage]
+disabled = false
+threshold = -1
+symbol = "🐏"
+style = "bold dimmed white"
+format = "via $symbol [${ram}( | ${swap})]($style) "
+
+[nodejs]
+symbol = "⬢ "
+style = "bold green"
+format = "via [$symbol$version]($style) "
+detect_extensions = ["js", "mjs", "cjs", "ts"]
+detect_files = ["package.json", ".node-version"]
+detect_folders = ["node_modules"]
+not_capable_style = "bold red"
+disabled = false
+
+[package]
+format = "via [$symbol$version]($style) "
+symbol = "📦 "
+style = "bold 208"
+display_private = false
+disabled = false
+
+[python]
+symbol = "🐍 "
+format = 'via [${symbol}${pyenv_prefix}${version}(\($virtualenv\))]($style) '
+style = "yellow bold"
+pyenv_version_name = true
+pyenv_prefix = "pyenv"
+python_binary = ["python", "python3", "python2"]
+detect_extensions = [".py"]
+detect_files = [".python-version", "Pipfile", "__init__.py", "pyproject.toml", "requirements.txt", "setup.py", "tox.ini"]
+detect_folders = []
+disabled = false
+
+[ruby]
+format = "via [$symbol($version )]($style)"
+version_format = "v{raw}"
+symbol = "💎 "
+detect_extensions = ["rb"]
+detect_files = ["Gemfile", ".ruby-version"]
+detect_folders = []
+style = "bold red"
+disabled = false
+
+[rust]
+format = "via [$symbol$version]($style) "
+version_format = "v{raw}"
+symbol = "🦀 "
+detect_extensions = ["rs"]
+detect_files = ["Cargo.toml"]
+detect_folders = []
+style = "bold red"
+disabled = false
+
+[shell]
+disabled = false
+
+[status]
+format = "[$symbol$status]($style) "
+symbol = "✖"
+not_executable_symbol = "🚫"
+not_found_symbol = "🔍"
+sigint_symbol = "🧱"
+signal_symbol = "⚡"
+style = "bold red"
+recognize_signal_code = true
+map_symbol = false
+disabled = false
+
+[swift]
+format = "via [$symbol$version]($style) "
+symbol = "🐦 "
+detect_extensions = ["swift"]
+detect_files = ["Package.swift"]
+detect_folders = []
+style = "bold 202"
+disabled = false
+
+[time]
+disabled = false
+format = "at [$time]($style) "
+use_12hr = false
+style = 'bold yellow'
+time_format = "%T"
+utc_time_offset = "+8"
+
+[username]
+style_user = "bold italic fg:purple"
+style_root = "black bold"
+format = "[$user]($style) "
+disabled = false
+show_always = true
+
+[vagrant]
+format = "via [$symbol($version )]($style)"
+symbol = "⍱ "
+detect_extensions = []
+detect_files = ["Vagrantfile"]
+detect_folders = []
+style = "Cyan bold"
+disabled = false
+
