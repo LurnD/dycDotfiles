@@ -1,5 +1,5 @@
 # Don't print a new line at the start of the prompt
-add_newLine = true
+add_newline = true
 
 format = "$all"
 
@@ -35,6 +35,7 @@ success_symbol = "[➜](bold green) "
 error_symbol = "[✗](bold red) "
 
 # Cmake configuration
+[cmake]
 format = "via [$symbol$version]($style) "
 symbol = "▲ "
 style = "bold blue"
@@ -60,7 +61,7 @@ read_only = "🔒"
 read_only_style = "red"
 
 # Docker Context
-[docker]
+[docker_context]
 format = "via [🐋 $context](blue bold)"
 
 # Dotnet
@@ -70,7 +71,7 @@ style = "green"
 heuristic = false
 
 # Environment Variable
-[environment]
+[env_var]
 variable = "SHELL"
 default = "unknown shell"
 style = "black bold dimmed"
